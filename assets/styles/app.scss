@@ -1,0 +1,96 @@
+// customize some Bootstrap variables
+
+$primary: #d32f2f;
+$danger: #f44336;
+
+$body-bg: #000000;
+$body-color: #ffffff;
+
+$navbar-bg: #000000;
+$navbar-color: #f44336;
+
+$font-family: "Gothic A1", sans-serif;
+
+.navbar,
+.navbar .nav-item,
+nav {
+  font-family: "Gothic A1", sans-serif;
+  color: #f44336;
+  margin: 10px;
+}
+
+.navbar .btn {
+  font-family: "Gothic A1", sans-serif;
+  // height: 20px;
+  // padding: 20px;
+  font-size: 1rem;
+  color: #f44336;
+}
+
+h1 {
+  font-family: "Gothic A1", sans-serif;
+  // font-weight: bolder;
+  color: #ffffff;
+  font-size: 2rem;
+}
+
+h2 {
+  color: #d32f2f;
+  font-family: "Gothic A1", sans-serif;
+  padding-top: 20px;
+}
+
+body {
+  font-family: "Gothic A1", sans-serif;
+  background-color: #000000;
+  color: white;
+}
+
+// the ~ allows you to reference things in node_modules
+@import "~bootstrap/scss/bootstrap";
+
+@import url("https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap");
+
+.banner {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+
+  video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -1;
+  }
+
+  .banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+    color: white;
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      background-color: #d32f2f;
+      border-color: #d32f2f;
+      color: white;
+      font-size: 1rem;
+      // padding: 0.5rem 2rem;
+    }
+  }
+}
+
+ul {
+  list-style-type: none;
+}
