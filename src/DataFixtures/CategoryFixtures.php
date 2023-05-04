@@ -17,8 +17,9 @@ class CategoryFixtures extends Fixture
         '🚀',
         '🎭',
         '🕵️‍♀️',
-        '🍷',
-        '☕',
+        '🦁',
+        '🦸🏼‍♂️',
+        '🔥',
     ];
     public function load(ObjectManager $manager)
     {
