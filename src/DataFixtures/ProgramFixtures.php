@@ -23,38 +23,69 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
     {
         $wildSeries = [
             [
-                'title' => 'The Wild Wild West (1965–1969)',
-                'synopsis' => 'Des cowboys se promènent dans l\'ouest',
-                'category' => 'category_🤠',
+                'title' => 'The Wild Wild Wild',
+                'synopsis' => 'Des cowboys se promènent dans l\'wild',
+                'category' => 'category_🤠 Horses & Guns',
             ],
             [
-                'title' => 'Power Rangers Wild Force (2002–2003)',
-                'synopsis' => 'Les Power Rangers combattent une armée d\'animaux sauvages menée par l\'empereur Org. Une révélation',
-                'category' => 'category_🦸🏼‍♂️',
+                'title' => 'Power Wilders',
+                'synopsis' => 'Pouvoir sauvage',
+                'category' => 'category_🦸🏼 Pif Paf',
             ],
             [
-                'title' => 'Wild at Heart (2006–2013)',
-                'synopsis' => 'Une famille anglaise décide de s\'installer en Afrique du Sud pour vivre avec les lions. Boring...',
-                'category' => 'category_🦁',
+                'title' => 'Breaking Wild',
+                'synopsis' => 'Une reconversion professionnelle qui tourne mal',
+                'category' => 'category_🧪 Experimental',
             ],
             [
-                'title' => 'The Wild Thornberrys (1998–2004)',
-                'synopsis' => 'Une famille de documentaristes animaliers parcourt le monde à la recherche de la faune sauvage.',
-                'category' => 'category_🔥',
+                'title' => 'The Walking Wild',
+                'synopsis' => 'Le wild zoo, un virus... aaarrrrghhhh',
+                'category' => 'category_🧟 aaarrrghh',
             ],
             [
-                'title' => 'Heartbreak Wild High (1994–1999)',
-                'synopsis' => 'Des faux jeunes, du drama, a bunch of wild make-up et le shark pool ...',
-                'category' => 'category_💘',
+                'title' => 'Wild High',
+                'synopsis' => 'Des jeunes, a bunch of wild make-up et le shark pool',
+                'category' => 'category_💘 Broken Hearts',
             ],
 
         ];
+
+        // $wildSeries = [
+        //     [
+        //         'title' => 'The Wild Wild Wild',
+        //         'synopsis' => 'Des cowboys se promènent dans l\'wild',
+        //         'category' => $this->getReference('category_🤠')->getId(),
+        //     ],
+        //     [
+        //         'title' => 'Power Wilders',
+        //         'synopsis' => 'Pouvoir sauvage',
+        //         'category' => $this->getReference('category_🦸🏼‍♂️')->getId(),
+        //     ],
+        //     [
+        //         'title' => 'Breaking Wild',
+        //         'synopsis' => 'Une reconversion professionnelle qui tourne mal',
+        //         'category' => $this->getReference('category_🧪')->getId(),
+        //     ],
+        //     [
+        //         'title' => 'The Walking Wild',
+        //         'synopsis' => 'Le wild zoo, un virus... aaarrrrghhhh',
+        //         'category' => $this->getReference('category_🧟')->getId(),
+        //     ],
+        //     [
+        //         'title' => 'Wild High',
+        //         'synopsis' => 'Des jeunes, a bunch of wild make-up et le shark pool',
+        //         'category' => $this->getReference('category_💘')->getId(),
+        //     ],
+
+        // ];
 
         foreach ($wildSeries as $seriesData) {
             $series = new Program();
             $series->setTitle($seriesData['title']);
             $series->setSynopsis($seriesData['synopsis']);
-            $series->setCategory($this->getReference($seriesData['category']));
+            $category = $this->getReference($seriesData['category']);
+            $series->setCategory($category);
+            // $series->setCategory($this->getReference($seriesData['category']));
             $manager->persist($series);
         }
 

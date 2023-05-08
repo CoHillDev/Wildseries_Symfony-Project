@@ -8,19 +8,34 @@ use Doctrine\Persistence\ObjectManager;
 
 class CategoryFixtures extends Fixture
 {
+    // const CATEGORIES = [
+    //     '💘',
+    //     '🦥',
+    //     '🤠',
+    //     '😱',
+    //     '🍅',
+    //     '🚀',
+    //     '🎭',
+    //     '🕵️‍♀️',
+    //     '🧪',
+    //     '🦸🏼‍♂️',
+    //     '🧟',
+    // ];
+
     const CATEGORIES = [
-        '💘',
-        '🦥',
-        '🤠',
-        '😱',
-        '🍅',
-        '🚀',
-        '🎭',
-        '🕵️‍♀️',
-        '🦁',
-        '🦸🏼‍♂️',
-        '🔥',
+        '💘 Broken Hearts',
+        '🦥 Chill',
+        '🤠 Horses & Guns',
+        '😱 Not Chill',
+        '🍅 Rotten Shows',
+        '🚀 To Infinity And Beyond',
+        '🎭 To blablabla or not to blablabla',
+        '🕵️‍♀️ Elementary',
+        '🧪 Experimental',
+        '🦸🏼 Pif Paf',
+        '🧟 aaarrrghh',
     ];
+
     public function load(ObjectManager $manager)
     {
         // $category = new Category();

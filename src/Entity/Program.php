@@ -23,7 +23,7 @@ class Program
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $poster = null;
 
-    #[ORM\ManyToOne]
+    #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'programs')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
 
@@ -73,9 +73,19 @@ class Program
         return $this->category;
     }
 
+    // public function setCategory(?Category $category): self
+    // {
+    //     $this->category = $category;
+
+    //     return $this;
+    // }
+
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+        // if ($category !== null) {
+        //     $category->addProgram($this);
+        // }
 
         return $this;
     }
