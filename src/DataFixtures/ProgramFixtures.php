@@ -6,87 +6,66 @@ use App\Entity\Program;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
+use Doctrine\Common\DataFixtures\ReferenceRepository;
+
 
 class ProgramFixtures extends Fixture implements DependentFixtureInterface
 {
-    // public function load(ObjectManager $manager)
-    // {
-    //     $program = new Program();
-    //     $program->setTitle('Wild Wild West');
-    //     $program->setSynopsis('Des cowboys se promènent dans l\'ouest');
-    //     $program->setCategory($this->getReference('category_🤠'));
-    //     $manager->persist($program);
-    //     $manager->flush();
-    // }
-
     public function load(ObjectManager $manager)
     {
         $wildSeries = [
             [
                 'title' => 'The Wild Wild Wild',
-                'synopsis' => 'Des cowboys se promènent dans l\'wild',
+                'synopsis' => 'Walking in the wild',
+                'country' => 'Wild West',
+                'year' => '1974',
                 'category' => 'category_🤠 Horses & Guns',
             ],
             [
                 'title' => 'Power Wilders',
-                'synopsis' => 'Pouvoir sauvage',
+                'synopsis' => 'Rainbow fighters fighting',
+                'country' => 'SuperCity',
+                'year' => '1993',
                 'category' => 'category_🦸🏼 Pif Paf',
             ],
             [
                 'title' => 'Breaking Wild',
-                'synopsis' => 'Une reconversion professionnelle qui tourne mal',
+                'synopsis' => 'Badly managed professional retraining',
+                'country' => 'New Mexico',
+                'year' => '2008',
                 'category' => 'category_🧪 Experimental',
             ],
             [
                 'title' => 'The Walking Wild',
-                'synopsis' => 'Le wild zoo, un virus... aaarrrrghhhh',
+                'synopsis' => 'Wild zoo + PHP virus... aaarrrrghhhh',
+                'country' => 'Bordeaux',
+                'year' => '2023',
                 'category' => 'category_🧟 aaarrrghh',
             ],
             [
                 'title' => 'Wild High',
-                'synopsis' => 'Des jeunes, a bunch of wild make-up et le shark pool',
+                'synopsis' => 'Young people, wild make-up & the shark pool, whhaaaat ?!',
+                'country' => 'Sydney Baby',
+                'year' => '1998',
                 'category' => 'category_💘 Broken Hearts',
             ],
 
         ];
 
-        // $wildSeries = [
-        //     [
-        //         'title' => 'The Wild Wild Wild',
-        //         'synopsis' => 'Des cowboys se promènent dans l\'wild',
-        //         'category' => $this->getReference('category_🤠')->getId(),
-        //     ],
-        //     [
-        //         'title' => 'Power Wilders',
-        //         'synopsis' => 'Pouvoir sauvage',
-        //         'category' => $this->getReference('category_🦸🏼‍♂️')->getId(),
-        //     ],
-        //     [
-        //         'title' => 'Breaking Wild',
-        //         'synopsis' => 'Une reconversion professionnelle qui tourne mal',
-        //         'category' => $this->getReference('category_🧪')->getId(),
-        //     ],
-        //     [
-        //         'title' => 'The Walking Wild',
-        //         'synopsis' => 'Le wild zoo, un virus... aaarrrrghhhh',
-        //         'category' => $this->getReference('category_🧟')->getId(),
-        //     ],
-        //     [
-        //         'title' => 'Wild High',
-        //         'synopsis' => 'Des jeunes, a bunch of wild make-up et le shark pool',
-        //         'category' => $this->getReference('category_💘')->getId(),
-        //     ],
-
-        // ];
-
         foreach ($wildSeries as $seriesData) {
             $series = new Program();
             $series->setTitle($seriesData['title']);
             $series->setSynopsis($seriesData['synopsis']);
+            $series->setCountry($seriesData['country']);
+            $series->setYear($seriesData['year']);
+
             $category = $this->getReference($seriesData['category']);
             $series->setCategory($category);
-            // $series->setCategory($this->getReference($seriesData['category']));
+
             $manager->persist($series);
+
+            // Ajouter une référence à chaque série
+            $this->referenceRepository->setReference('program_' . $seriesData['title'], $series);
         }
 
         $manager->flush();
@@ -100,3 +79,13 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
         ];
     }
 }
+
+    // public function load(ObjectManager $manager)
+    // {
+    //     $program = new Program();
+    //     $program->setTitle('Wild Wild West');
+    //     $program->setSynopsis('Des cowboys se promènent dans l\'ouest');
+    //     $program->setCategory($this->getReference('category_🤠'));
+    //     $manager->persist($program);
+    //     $manager->flush();
+    // }

@@ -1,8 +1,4 @@
 // customize some Bootstrap variables
-// the ~ allows you to reference things in node_modules
-@import "~bootstrap/scss/bootstrap";
-
-@import url("https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap");
 
 $primary: #d32f2f;
 $danger: #f44336;
@@ -53,6 +49,17 @@ h3 {
   text-decoration: none;
 }
 
+ul,
+.list-group-item,
+.list-group {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+@import "~bootstrap/scss/bootstrap";
+// the ~ allows you to reference things in node_modules
+@import url("https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap");
+
 body {
   font-family: "Gothic A1", sans-serif;
   background-color: #000000;
@@ -84,6 +91,8 @@ body {
     transform: translateX(-50%) translateY(-50%);
     text-align: center;
     color: white;
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 500;
 
     h2 {
       font-size: 2rem;
@@ -92,15 +101,11 @@ body {
 
     .btn {
       background-color: #d32f2f;
-      border-color: #d32f2f;
-      color: rgb(0, 0, 0);
+      // border-color: #d32f2f;
+      color: rgb(255, 255, 255);
       font-size: 1rem;
       font-family: "Gothic A1", sans-serif;
       // padding: 0.5rem 2rem;
     }
   }
-}
-
-ul {
-  list-style-type: none;
 }

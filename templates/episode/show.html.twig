@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Wild Series - Episode {{ episode.title }}{% endblock %}
+
+{% block body %}
+    <div class="media">
+        <img class="align-self-start mr-3" src="{{ episode.program.poster }}" alt="{{ episode.program.title }} poster">
+        <div class="media-body">
+            <h1 class="mt-0">{{ episode.title }}</h1>
+            <p>{{ episode.synopsis }}</p>
+            <p>Air date: {{ episode.number }} - {{ episode.getFormattedDuration() }}</p>
+        </div>
+    </div>
+
+    <a href="{{ path('program_season_show', { 'programId': episode.program.id, 'seasonId': episode.season.id }) }}">
+        Back to season {{ episode.season.number }}
+    </a>
+{% endblock %}
